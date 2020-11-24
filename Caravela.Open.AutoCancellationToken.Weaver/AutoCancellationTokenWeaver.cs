@@ -10,7 +10,7 @@ using static Microsoft.CodeAnalysis.CSharp.SyntaxFactory;
 
 namespace Caravela.Open.AutoCancellationToken
 {
-    [AspectWeaver(typeof(AutoCancellationTokenAttribute))]
+    [CompilerPlugin, AspectWeaver(typeof(AutoCancellationTokenAttribute))]
     class AutoCancellationTokenWeaver : IAspectWeaver
     {
         public CSharpCompilation Transform(AspectWeaverContext context)

@@ -1,7 +1,7 @@
 ## Caravela.Open.AutoCancellationToken 
 Automatically propagates `CancellationToken` parameter to `async` methods and method calls within them.
 
-*This is a [Caravela](https://postsharp.net/caravela) aspect. It modifies your code during compilation by using source weaving.*
+*This is a [Caravela](https://github.com/postsharp/Caravela) aspect. It modifies your code during compilation by using source weaving.*
  
 [![CI badge](https://github.com/postsharp/Caravela.Open.AutoCancellationToken/workflows/Full%20Pipeline/badge.svg)](https://github.com/postsharp/Caravela.Open.AutoCancellationToken/actions?query=workflow%3A%22Full+Pipeline%22)
 
