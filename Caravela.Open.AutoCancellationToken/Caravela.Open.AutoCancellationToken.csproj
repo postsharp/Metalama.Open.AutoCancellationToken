@@ -9,7 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Caravela.Framework" Version="0.1.31" />
+    <PackageReference Include="Caravela.Framework" Version="0.1.0-preview" />
   </ItemGroup>
 
 </Project>

@@ -16,7 +16,7 @@
       <ItemGroup>
         <ProjectReference Include="..\Caravela.Open.AutoCancellationToken.Weaver\Caravela.Open.AutoCancellationToken.Weaver.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
         <ProjectReference Include="..\Caravela.Open.AutoCancellationToken\Caravela.Open.AutoCancellationToken.csproj" OutputItemType="Analyzer" />
-        <PackageReference Include="Caravela.Framework" Version="0.1.31" />
+        <PackageReference Include="Caravela.Framework" Version="0.1.0-preview" />
       </ItemGroup>
 
     </When>
@@ -24,7 +24,7 @@
 
       <!-- to reference the weaver as a package, this one line is mostly enough -->
       <ItemGroup>
-        <PackageReference Include="Caravela.Open.AutoCancellationToken" Version="0.1.1" />
+        <PackageReference Include="Caravela.Open.AutoCancellationToken" Version="0.1.0-preview" />
       </ItemGroup>
       <!-- we also need to add a NuGet source that points to where the weaver package is located -->
       <!-- this is not necessary if the weaver package is on NuGet.org, or another configured package source -->
