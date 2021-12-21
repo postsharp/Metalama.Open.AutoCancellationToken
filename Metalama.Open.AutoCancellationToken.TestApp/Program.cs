@@ -3,7 +3,7 @@ using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Caravela.Open.AutoCancellationToken.TestApp
+namespace Metalama.Open.AutoCancellationToken.TestApp
 {
     class Program
     {

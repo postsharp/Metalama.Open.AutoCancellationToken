@@ -1,7 +1,7 @@
 ﻿using System;
-using Caravela.Framework.Aspects;
+using Metalama.Framework.Aspects;
 
-namespace Caravela.Open.AutoCancellationToken
+namespace Metalama.Open.AutoCancellationToken
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Interface)]
     public class AutoCancellationTokenAttribute : Attribute, IAspect { }

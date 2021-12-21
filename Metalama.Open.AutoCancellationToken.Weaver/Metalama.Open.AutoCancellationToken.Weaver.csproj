@@ -3,17 +3,17 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
     <LangVersion>9.0</LangVersion>
-    <PackageId>Caravela.Open.AutoCancellationToken</PackageId>
+    <PackageId>Metalama.Open.AutoCancellationToken</PackageId>
     <Version>0.1.0-preview</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Caravela.Framework.Sdk" Version="0.1.0-preview" />
+    <PackageReference Include="Metalama.Framework.Sdk" Version="0.1.0-preview" />
   </ItemGroup>
 
-  <!-- PrivateAssets="all" ensures that the NuGet package for this project does not have a dependency on the other project; Caravela.Framework.Sdk takes care of including it directly in the package -->
+  <!-- PrivateAssets="all" ensures that the NuGet package for this project does not have a dependency on the other project; Metalama.Framework.Sdk takes care of including it directly in the package -->
   <ItemGroup>
-    <ProjectReference Include="..\Caravela.Open.AutoCancellationToken\Caravela.Open.AutoCancellationToken.csproj" PrivateAssets="all" />
+    <ProjectReference Include="..\Metalama.Open.AutoCancellationToken\Metalama.Open.AutoCancellationToken.csproj" PrivateAssets="all" />
   </ItemGroup>
 
 </Project>

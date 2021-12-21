@@ -11,12 +11,12 @@
     <When Condition="$(UsePackageReference) != 'true'">
 
       <!-- to reference the weaver as a project, we need to add these three references separately -->
-      <!-- OutputItemType="Analyzer" on the two ProjectReferences is needed so that Caravela can execute the weaver at build time -->
-      <!-- ReferenceOutputAssembly="false" ensures that this project does not have access to libraries that it shouldn't: Caravela SDK and Roslyn -->
+      <!-- OutputItemType="Analyzer" on the two ProjectReferences is needed so that Metalama can execute the weaver at build time -->
+      <!-- ReferenceOutputAssembly="false" ensures that this project does not have access to libraries that it shouldn't: Metalama SDK and Roslyn -->
       <ItemGroup>
-        <ProjectReference Include="..\Caravela.Open.AutoCancellationToken.Weaver\Caravela.Open.AutoCancellationToken.Weaver.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
-        <ProjectReference Include="..\Caravela.Open.AutoCancellationToken\Caravela.Open.AutoCancellationToken.csproj" OutputItemType="Analyzer" />
-        <PackageReference Include="Caravela.Framework" Version="0.1.0-preview" />
+        <ProjectReference Include="..\Metalama.Open.AutoCancellationToken.Weaver\Metalama.Open.AutoCancellationToken.Weaver.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
+        <ProjectReference Include="..\Metalama.Open.AutoCancellationToken\Metalama.Open.AutoCancellationToken.csproj" OutputItemType="Analyzer" />
+        <PackageReference Include="Metalama.Framework" Version="0.1.0-preview" />
       </ItemGroup>
 
     </When>
@@ -24,12 +24,12 @@
 
       <!-- to reference the weaver as a package, this one line is mostly enough -->
       <ItemGroup>
-        <PackageReference Include="Caravela.Open.AutoCancellationToken" Version="0.1.0-preview" />
+        <PackageReference Include="Metalama.Open.AutoCancellationToken" Version="0.1.0-preview" />
       </ItemGroup>
       <!-- we also need to add a NuGet source that points to where the weaver package is located -->
       <!-- this is not necessary if the weaver package is on NuGet.org, or another configured package source -->
       <PropertyGroup>
-        <RestoreAdditionalProjectSources>../Caravela.Open.AutoCancellationToken.Weaver/bin/$(Configuration)</RestoreAdditionalProjectSources>
+        <RestoreAdditionalProjectSources>../Metalama.Open.AutoCancellationToken.Weaver/bin/$(Configuration)</RestoreAdditionalProjectSources>
       </PropertyGroup>
 
     </Otherwise>
