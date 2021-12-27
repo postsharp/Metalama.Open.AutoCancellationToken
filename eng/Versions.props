@@ -1,0 +1,31 @@
+<Project>
+
+    <!-- Set the default version of the current product -->
+    <Import Project="MainVersion.props" />
+    
+    <PropertyGroup>
+        <MetalamaOpenDependencyEmbedderVersion>$(MainVersion)$(PackageVersionSuffix)</MetalamaOpenDependencyEmbedderVersion>
+        <MetalamaOpenDependencyEmbedderAssemblyVersion>$(MainVersion)</MetalamaOpenDependencyEmbedderAssemblyVersion>
+    </PropertyGroup>
+
+    
+    <!-- Set the default versions of dependencies -->
+    <PropertyGroup>
+        <PostSharpEngineeringVersion>1.0.22-preview</PostSharpEngineeringVersion>
+        <!-- TODO: Set to a public version before merging to master. -->
+		<MetalamaVersion>branch:master</MetalamaVersion>
+
+        <NewtonsoftJsonVersion>13.0.1</NewtonsoftJsonVersion>
+        <SoothsilverRandomVersion>1.1.0</SoothsilverRandomVersion>
+        <xUnitVersion>2.4.1</xUnitVersion>
+    </PropertyGroup>
+
+    <!-- Override versions (both this product and dependencies) for the local build -->
+    <Import Project="Versions.g.props" Condition="Exists('Versions.g.props')" />
+
+    <PropertyGroup>
+        <AssemblyVersion>$(MetalamaOpenDependencyEmbedderAssemblyVersion)</AssemblyVersion>
+        <Version>$(MetalamaOpenDependencyEmbedderVersion)</Version>
+    </PropertyGroup>
+
+</Project>

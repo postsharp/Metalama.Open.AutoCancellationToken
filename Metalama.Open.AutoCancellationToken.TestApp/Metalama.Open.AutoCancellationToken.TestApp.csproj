@@ -16,7 +16,7 @@
       <ItemGroup>
         <ProjectReference Include="..\Metalama.Open.AutoCancellationToken.Weaver\Metalama.Open.AutoCancellationToken.Weaver.csproj" OutputItemType="Analyzer" ReferenceOutputAssembly="false" />
         <ProjectReference Include="..\Metalama.Open.AutoCancellationToken\Metalama.Open.AutoCancellationToken.csproj" OutputItemType="Analyzer" />
-        <PackageReference Include="Metalama.Framework" Version="0.1.0-preview" />
+        <PackageReference Include="Metalama.Framework" Version="$(MetalamaVersion)" />
       </ItemGroup>
 
     </When>
