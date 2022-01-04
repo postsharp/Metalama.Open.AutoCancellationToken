@@ -1,11 +1,11 @@
-## Caravela.Open.AutoCancellationToken 
+## Metalama.Open.AutoCancellationToken 
 Automatically propagates `CancellationToken` parameter to `async` methods and method calls within them.
 
-*This is a [Caravela](https://github.com/postsharp/Caravela) aspect. It modifies your code during compilation by using source weaving.*
+*This is a [Metalama](https://github.com/postsharp/Metalama) aspect. It modifies your code during compilation by using source weaving.*
 
-You can also [try this aspect on try.postsharp.net](https://try.postsharp.net/#autocancellationtoken).
+You can also [try this aspect on try.metalama.net](https://try.metalama.net/#autocancellationtoken).
  
-[![CI badge](https://github.com/postsharp/Caravela.Open.AutoCancellationToken/workflows/Full%20Pipeline/badge.svg)](https://github.com/postsharp/Caravela.Open.AutoCancellationToken/actions?query=workflow%3A%22Full+Pipeline%22)
+[![CI badge](https://github.com/postsharp/Metalama.Open.AutoCancellationToken/workflows/Full%20Pipeline/badge.svg)](https://github.com/postsharp/Metalama.Open.AutoCancellationToken/actions?query=workflow%3A%22Full+Pipeline%22)
 
 #### Example
 Your code:
@@ -39,7 +39,7 @@ class C
 Notice that `CancellationToken` parameter was added to the declaration of `MakeRequest` and that `CancellationToken` argument was added to the calls of `MakeRequest` and `HttpClient.GetAsync`.
 
 #### Installation
-Install the NuGet package: `dotnet add package Caravela.Open.AutoCancellationToken`.
+Install the NuGet package: `dotnet add package Metalama.Open.AutoCancellationToken`.
 
 #### How to use
 

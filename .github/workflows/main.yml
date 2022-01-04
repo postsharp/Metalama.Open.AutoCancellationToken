@@ -23,4 +23,4 @@ jobs:
     - name: Build
       run: dotnet build
     - name: Run
-      run: dotnet run -p Caravela.Open.AutoCancellationToken.TestApp
+      run: dotnet run -p Metalama.Open.AutoCancellationToken.TestApp

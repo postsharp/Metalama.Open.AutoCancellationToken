@@ -5,10 +5,10 @@ using System.Threading;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
-using Caravela.Framework.Sdk;
+using Metalama.Framework.Sdk;
 using static Microsoft.CodeAnalysis.CSharp.SyntaxFactory;
 
-namespace Caravela.Open.AutoCancellationToken
+namespace Metalama.Open.AutoCancellationToken
 {
     [CompilerPlugin, AspectWeaver(typeof(AutoCancellationTokenAttribute))]
     class AutoCancellationTokenWeaver : IAspectWeaver
@@ -46,7 +46,7 @@ namespace Caravela.Open.AutoCancellationToken
             public override SyntaxNode VisitConstructorDeclaration(ConstructorDeclarationSyntax node) => node;
             public override SyntaxNode VisitDestructorDeclaration(DestructorDeclarationSyntax node) => node;
 
-            protected const string CancellationAttributeName = "Caravela.Open.AutoCancellationToken.AutoCancellationTokenAttribute";
+            protected const string CancellationAttributeName = "Metalama.Open.AutoCancellationToken.AutoCancellationTokenAttribute";
         }
 
         sealed class AnnotateNodesRewriter : RewriterBase
