@@ -10,8 +10,6 @@ namespace Metalama.Open.AutoCancellationToken.Weaver
     [AspectWeaver( typeof(AutoCancellationTokenAttribute) )]
     internal partial class AutoCancellationTokenWeaver : IAspectWeaver
     {
-//        protected const string CancellationAttributeName = "Metalama.Open.AutoCancellationToken.AutoCancellationTokenAttribute";
-
         public void Transform( AspectWeaverContext context )
         {
             var compilation = context.Compilation;

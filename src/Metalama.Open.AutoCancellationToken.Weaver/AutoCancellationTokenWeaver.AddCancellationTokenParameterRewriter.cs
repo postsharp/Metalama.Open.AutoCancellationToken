@@ -59,8 +59,7 @@ namespace Metalama.Open.AutoCancellationToken.Weaver
                             SyntaxFactory.Identifier( "cancellationToken" ),
                             SyntaxFactory.EqualsValueClause( SyntaxFactory.Token( SyntaxKind.EqualsToken ).WithTrailingTrivia( SyntaxFactory.ElasticSpace ), SyntaxFactory.LiteralExpression( SyntaxKind.DefaultLiteralExpression ) ).WithTrailingTrivia( SyntaxFactory.ElasticSpace ) )
                     .WithTrailingTrivia( SyntaxFactory.ElasticSpace )
-                        .WithAdditionalAnnotations( FormattingAnnotations.GeneratedCode )
-                    );
+                        .WithAdditionalAnnotations( FormattingAnnotations.GeneratedCode ) );
 
                 node = node.WithParameterList( SyntaxFactory.ParameterList( SyntaxFactory.SeparatedList<ParameterSyntax>( new SyntaxNodeOrTokenList( parameters ) ) ) );
 

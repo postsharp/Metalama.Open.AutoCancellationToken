@@ -43,8 +43,6 @@ namespace Metalama.Open.AutoCancellationToken.Weaver
             public override SyntaxNode VisitConstructorDeclaration( ConstructorDeclarationSyntax node ) => node;
 
             public override SyntaxNode VisitDestructorDeclaration( DestructorDeclarationSyntax node ) => node;
-
-            
         }
     }
 }
