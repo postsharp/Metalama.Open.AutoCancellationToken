@@ -16,7 +16,7 @@ namespace Metalama.Open.AutoCancellationToken.Weaver
         public void Transform( AspectWeaverContext context )
         {
             var compilation = context.Compilation;
-            var instancesNodes = context.AspectInstances.SelectMany( a => a.Key.DeclaringSyntaxReferences ).Select( x=>x.GetSyntax(  ) );
+            var instancesNodes = context.AspectInstances.SelectMany( a => a.Key.DeclaringSyntaxReferences ).Select( x=>x.GetSyntax() );
             
             RunRewriter( new AnnotateNodesRewriter( instancesNodes ) );
             RunRewriter( new AddCancellationTokenParameterRewriter( compilation.Compilation ) );
