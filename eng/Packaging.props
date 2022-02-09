@@ -5,10 +5,9 @@
     <!-- Properties of NuGet packages-->
     <PropertyGroup>
         <Authors>PostSharp Technologies</Authors>
-        <PackageProjectUrl>https://github.com/postsharp/Metalama</PackageProjectUrl>
+        <PackageProjectUrl>https://github.com/postsharp/Metalama.Open.AutoCancellationToken</PackageProjectUrl>
         <PackageTags></PackageTags>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-        <PackageIcon>postsharp.png</PackageIcon>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     </PropertyGroup>
 
