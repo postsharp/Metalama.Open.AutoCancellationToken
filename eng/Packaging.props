@@ -1,6 +1,6 @@
 <Project>
 
-    <Import Sdk="PostSharp.Engineering.Sdk" Project="Assets.props" />
+    <Import Sdk="PostSharp.Engineering.Sdk" Project="MetalamaBranding.props" />
 
     <!-- Properties of NuGet packages-->
     <PropertyGroup>
@@ -13,7 +13,6 @@
 
     <!-- Additional content of NuGet packages -->
     <ItemGroup>
-        <None Include="$(AssetsDirectory)\postsharp.png" Visible="false" Pack="true" PackagePath="" />
         <None Include="$(MSBuildThisFileDirectory)..\LICENSE.md" Visible="false" Pack="true" PackagePath="" />
         <None Include="$(MSBuildThisFileDirectory)..\THIRD-PARTY-NOTICES.TXT" Visible="false" Pack="true" PackagePath="" />
     </ItemGroup>
