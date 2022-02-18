@@ -11,8 +11,7 @@ var product = new Product
     ProductName = "Metalama.Open.AutoCancellationToken",
     Solutions = new[] { new DotNetSolution( "Metalama.Open.AutoCancellationToken.sln" ) { CanFormatCode = true } },
     PublicArtifacts = Pattern.Create( "Metalama.Open.AutoCancellationToken.$(PackageVersion).nupkg" ),
-    Dependencies = new[] { Dependencies.PostSharpEngineering, Dependencies.Metalama },
-    MainVersionDependency = Dependencies.Metalama
+    Dependencies = new[] { Dependencies.PostSharpEngineering, Dependencies.Metalama }
 };
 
 var commandApp = new CommandApp();
