@@ -1,6 +1,8 @@
 <Project>
     <PropertyGroup>
-        <MainVersion>0.5.0</MainVersion>
+        <!-- The version number is inferred from Metalama.
+             This is set usnig Product.MainVersionDependency property in eng\src\Program.cs. -->
+        <MainVersion>0.0.0</MainVersion>
         <PackageVersionSuffix>-preview</PackageVersionSuffix>
     </PropertyGroup>
 </Project>
