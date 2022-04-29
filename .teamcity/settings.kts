@@ -17,7 +17,8 @@ project {
    buildType(ReleaseBuild)
    buildType(PublicBuild)
    buildType(PublicDeployment)
-   buildTypesOrder = arrayListOf(DebugBuild,ReleaseBuild,PublicBuild,PublicDeployment)
+   buildType(VersionBump)
+   buildTypesOrder = arrayListOf(DebugBuild,ReleaseBuild,PublicBuild,PublicDeployment,VersionBump)
 }
 
 object DebugBuild : BuildType({
@@ -62,7 +63,7 @@ object DebugBuild : BuildType({
 
     }
 
-  dependencies {
+    dependencies {
 
         snapshot(AbsoluteId("Metalama_Metalama_DebugBuild")) {
                      onDependencyFailure = FailureAction.FAIL_TO_START
@@ -103,7 +104,7 @@ object ReleaseBuild : BuildType({
         }
     }
 
-  dependencies {
+    dependencies {
 
         snapshot(AbsoluteId("Metalama_Metalama_ReleaseBuild")) {
                      onDependencyFailure = FailureAction.FAIL_TO_START
@@ -144,7 +145,7 @@ object PublicBuild : BuildType({
         }
     }
 
-  dependencies {
+    dependencies {
 
         snapshot(AbsoluteId("Metalama_Metalama_PublicBuild")) {
                      onDependencyFailure = FailureAction.FAIL_TO_START
@@ -183,9 +184,13 @@ object PublicDeployment : BuildType({
             lockingProcesses = Swabra.LockingProcessPolicy.KILL
             verbose = true
         }
+        sshAgent {
+            // By convention, the SSH key name is always PostSharp.Engineering for all repositories using SSH to connect.
+            teamcitySshKey = "PostSharp.Engineering"
+        }
     }
 
-  dependencies {
+    dependencies {
 
         dependency(PublicBuild) {
             snapshot {
@@ -199,6 +204,43 @@ object PublicDeployment : BuildType({
         }
 
      }
+
+})
+
+object VersionBump : BuildType({
+
+    name = "Version Bump"
+
+    type = Type.DEPLOYMENT
+
+    vcs {
+        root(DslContext.settingsRoot)
+    }
+
+    steps {
+        powerShell {
+            scriptMode = file {
+                path = "Build.ps1"
+            }
+            noProfile = false
+            param("jetbrains_powershell_scriptArguments", "bump")
+        }
+    }
+
+    requirements {
+        equals("env.BuildAgentType", "caravela02")
+    }
+
+    features {
+        swabra {
+            lockingProcesses = Swabra.LockingProcessPolicy.KILL
+            verbose = true
+        }
+        sshAgent {
+            // By convention, the SSH key name is always PostSharp.Engineering for all repositories using SSH to connect.
+            teamcitySshKey = "PostSharp.Engineering"
+        }
+    }
 
 })
 
