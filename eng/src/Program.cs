@@ -7,11 +7,8 @@ using PostSharp.Engineering.BuildTools.Build.Solutions;
 using PostSharp.Engineering.BuildTools.Dependencies.Model;
 using Spectre.Console.Cli;
 
-var productDependencyDefinition = Dependencies.MetalamaOpenAutoCancellationToken;
-
-var product = new Product(productDependencyDefinition)
+var product = new Product(Dependencies.MetalamaOpenAutoCancellationToken)
 {
-    ProductName = productDependencyDefinition.Name,
     Solutions = new[] { new DotNetSolution( "Metalama.Open.AutoCancellationToken.sln" ) { CanFormatCode = true } },
     PublicArtifacts = Pattern.Create( "Metalama.Open.AutoCancellationToken.$(PackageVersion).nupkg" ),
     Dependencies = new[] { Dependencies.PostSharpEngineering, Dependencies.Metalama },
