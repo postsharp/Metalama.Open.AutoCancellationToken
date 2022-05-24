@@ -18,6 +18,7 @@ var product = new Product( Dependencies.MetalamaOpenAutoCancellationToken )
     Configurations = Product.DefaultConfigurations
         .WithValue( BuildConfiguration.Public, new BuildConfigurationInfo(
             MSBuildName: "Release",
+            RequiresSigning: true,
             PublicPublishers: Product.DefaultPublicPublishers.Add( new MergePublisher() ).ToArray() ) )
 };
 
