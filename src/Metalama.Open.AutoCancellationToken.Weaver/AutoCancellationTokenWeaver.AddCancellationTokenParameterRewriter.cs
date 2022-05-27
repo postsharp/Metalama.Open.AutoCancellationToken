@@ -58,8 +58,8 @@ namespace Metalama.Open.AutoCancellationToken.Weaver
                     SyntaxFactory.Parameter(
                             default,
                             default,
-                            CancellationTokenType,
-                            SyntaxFactory.Identifier( "cancellationToken" ),
+                            CancellationTokenType.WithTrailingTrivia( SyntaxFactory.ElasticSpace ),
+                            SyntaxFactory.Identifier( "cancellationToken" ).WithTrailingTrivia( SyntaxFactory.ElasticSpace ),
                             SyntaxFactory.EqualsValueClause(
                                     SyntaxFactory.Token( SyntaxKind.EqualsToken ).WithTrailingTrivia( SyntaxFactory.ElasticSpace ),
                                     SyntaxFactory.LiteralExpression( SyntaxKind.DefaultLiteralExpression ) )
