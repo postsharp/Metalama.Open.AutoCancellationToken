@@ -23,10 +23,11 @@ namespace Metalama.Open.AutoCancellationToken.Weaver
 
             public override SyntaxNode VisitRecordDeclaration( RecordDeclarationSyntax node ) => this.VisitTypeDeclaration( node, base.VisitRecordDeclaration );
 
-            protected abstract T VisitTypeDeclaration<T>( T node, Func<T, SyntaxNode?> baseVisit ) 
+            protected abstract T VisitTypeDeclaration<T>( T node, Func<T, SyntaxNode?> baseVisit )
                 where T : TypeDeclarationSyntax;
 
-            protected static readonly TypeSyntax CancellationTokenType = SyntaxFactory.ParseTypeName( typeof(CancellationToken).FullName ).WithAdditionalAnnotations( FormattingAnnotations.Simplify );
+            protected static readonly TypeSyntax CancellationTokenType = SyntaxFactory.ParseTypeName( typeof(CancellationToken).FullName )
+                .WithAdditionalAnnotations( FormattingAnnotations.Simplify );
 
             protected static bool IsCancellationToken( IParameterSymbol parameter )
                 => parameter.OriginalDefinition.Type.ToString() == typeof(CancellationToken).FullName;

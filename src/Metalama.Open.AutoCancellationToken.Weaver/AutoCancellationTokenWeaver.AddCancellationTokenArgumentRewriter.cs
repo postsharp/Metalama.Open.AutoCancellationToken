@@ -1,5 +1,5 @@
-// Copyright (c) SharpCrafters s.r.o.All rights reserved.
-// This project is not open source.Please see the LICENSE.md file in the repository root for details.
+// Copyright (c) SharpCrafters s.r.o. All rights reserved.
+// This project is not open source. Please see the LICENSE.md file in the repository root for details.
 
 using Metalama.Framework.Engine.Formatting;
 using Microsoft.CodeAnalysis;
@@ -74,7 +74,7 @@ namespace Metalama.Open.AutoCancellationToken.Weaver
             public override SyntaxNode? VisitLocalFunctionStatement( LocalFunctionStatementSyntax node )
                 => VisitFunction( node, node.Modifiers.Any( SyntaxKind.StaticKeyword ), base.VisitLocalFunctionStatement );
 
-            private static T VisitFunction<T>( T node, bool isStatic, Func<T, SyntaxNode?> baseVisit ) 
+            private static T VisitFunction<T>( T node, bool isStatic, Func<T, SyntaxNode?> baseVisit )
                 where T : SyntaxNode
             {
                 if ( isStatic )
@@ -117,13 +117,21 @@ namespace Metalama.Open.AutoCancellationToken.Weaver
                     if ( arguments.Count > 0 )
                     {
                         // Remove the trivia after the last argument.
-                        arguments[arguments.Count-1] = arguments[arguments.Count - 1].AsNode()!.WithoutTrailingTrivia();
-                        arguments.Add( SyntaxFactory.Token( SyntaxKind.CommaToken ).WithTrailingTrivia( SyntaxFactory.ElasticSpace ).WithAdditionalAnnotations( FormattingAnnotations.GeneratedCode ) );
+                        arguments[arguments.Count - 1] = arguments[arguments.Count - 1].AsNode()!.WithoutTrailingTrivia();
+
+                        arguments.Add(
+                            SyntaxFactory.Token( SyntaxKind.CommaToken )
+                                .WithTrailingTrivia( SyntaxFactory.ElasticSpace )
+                                .WithAdditionalAnnotations( FormattingAnnotations.GeneratedCode ) );
                     }
 
-                    arguments.Add( SyntaxFactory.Argument( SyntaxFactory.IdentifierName( this._cancellationTokenParameterName! ) ).WithAdditionalAnnotations( FormattingAnnotations.GeneratedCode ).WithTrailingTrivia( SyntaxFactory.ElasticSpace ) );
+                    arguments.Add(
+                        SyntaxFactory.Argument( SyntaxFactory.IdentifierName( this._cancellationTokenParameterName! ) )
+                            .WithAdditionalAnnotations( FormattingAnnotations.GeneratedCode )
+                            .WithTrailingTrivia( SyntaxFactory.ElasticSpace ) );
 
-                    node = node.WithArgumentList( SyntaxFactory.ArgumentList( SyntaxFactory.SeparatedList<ArgumentSyntax>( new SyntaxNodeOrTokenList( arguments ) ) ) );
+                    node = node.WithArgumentList(
+                        SyntaxFactory.ArgumentList( SyntaxFactory.SeparatedList<ArgumentSyntax>( new SyntaxNodeOrTokenList( arguments ) ) ) );
                 }
 
                 return node;

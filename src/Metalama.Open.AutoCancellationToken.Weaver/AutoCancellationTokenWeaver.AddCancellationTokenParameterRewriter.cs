@@ -48,7 +48,11 @@ namespace Metalama.Open.AutoCancellationToken.Weaver
                 {
                     // Remove the trivia after the last argument.
                     parameters[parameters.Count - 1] = parameters[parameters.Count - 1].AsNode()!.WithoutTrailingTrivia();
-                    parameters.Add( SyntaxFactory.Token( SyntaxKind.CommaToken ).WithTrailingTrivia( SyntaxFactory.ElasticSpace ).WithAdditionalAnnotations( FormattingAnnotations.GeneratedCode ) );
+
+                    parameters.Add(
+                        SyntaxFactory.Token( SyntaxKind.CommaToken )
+                            .WithTrailingTrivia( SyntaxFactory.ElasticSpace )
+                            .WithAdditionalAnnotations( FormattingAnnotations.GeneratedCode ) );
                 }
 
                 parameters.Add(
@@ -57,11 +61,15 @@ namespace Metalama.Open.AutoCancellationToken.Weaver
                             default,
                             CancellationTokenType,
                             SyntaxFactory.Identifier( "cancellationToken" ),
-                            SyntaxFactory.EqualsValueClause( SyntaxFactory.Token( SyntaxKind.EqualsToken ).WithTrailingTrivia( SyntaxFactory.ElasticSpace ), SyntaxFactory.LiteralExpression( SyntaxKind.DefaultLiteralExpression ) ).WithTrailingTrivia( SyntaxFactory.ElasticSpace ) )
-                    .WithTrailingTrivia( SyntaxFactory.ElasticSpace )
+                            SyntaxFactory.EqualsValueClause(
+                                    SyntaxFactory.Token( SyntaxKind.EqualsToken ).WithTrailingTrivia( SyntaxFactory.ElasticSpace ),
+                                    SyntaxFactory.LiteralExpression( SyntaxKind.DefaultLiteralExpression ) )
+                                .WithTrailingTrivia( SyntaxFactory.ElasticSpace ) )
+                        .WithTrailingTrivia( SyntaxFactory.ElasticSpace )
                         .WithAdditionalAnnotations( FormattingAnnotations.GeneratedCode ) );
 
-                node = node.WithParameterList( SyntaxFactory.ParameterList( SyntaxFactory.SeparatedList<ParameterSyntax>( new SyntaxNodeOrTokenList( parameters ) ) ) );
+                node = node.WithParameterList(
+                    SyntaxFactory.ParameterList( SyntaxFactory.SeparatedList<ParameterSyntax>( new SyntaxNodeOrTokenList( parameters ) ) ) );
 
                 return node;
             }
