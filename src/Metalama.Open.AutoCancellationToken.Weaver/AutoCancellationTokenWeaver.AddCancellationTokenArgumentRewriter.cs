@@ -9,7 +9,7 @@ using System.Linq;
 
 namespace Metalama.Open.AutoCancellationToken.Weaver
 {
-    internal partial class AutoCancellationTokenWeaver
+    public partial class AutoCancellationTokenWeaver
     {
         private sealed class AddCancellationTokenArgumentRewriter : RewriterBase
         {

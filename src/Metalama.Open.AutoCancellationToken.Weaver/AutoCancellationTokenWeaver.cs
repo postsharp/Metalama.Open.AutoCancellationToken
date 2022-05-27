@@ -9,8 +9,7 @@ using System.Linq;
 namespace Metalama.Open.AutoCancellationToken.Weaver
 {
     [MetalamaPlugIn]
-    [AspectWeaver( typeof(AutoCancellationTokenAttribute) )]
-    internal partial class AutoCancellationTokenWeaver : IAspectWeaver
+    public partial class AutoCancellationTokenWeaver : IAspectWeaver
     {
         public void Transform( AspectWeaverContext context )
         {

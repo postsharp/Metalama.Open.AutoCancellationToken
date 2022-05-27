@@ -6,4 +6,5 @@ using System;
 namespace Metalama.Open.AutoCancellationToken;
 
 [AttributeUsage( AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Interface )]
+[RequireAspectWeaver("Metalama.Open.AutoCancellationToken.Weaver.AutoCancellationTokenWeaver")]
 public class AutoCancellationTokenAttribute : TypeAspect { }

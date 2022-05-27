@@ -9,7 +9,7 @@ using System.Threading;
 
 namespace Metalama.Open.AutoCancellationToken.Weaver
 {
-    internal partial class AutoCancellationTokenWeaver
+    public partial class AutoCancellationTokenWeaver
     {
         private abstract class RewriterBase : CSharpSyntaxRewriter
         {

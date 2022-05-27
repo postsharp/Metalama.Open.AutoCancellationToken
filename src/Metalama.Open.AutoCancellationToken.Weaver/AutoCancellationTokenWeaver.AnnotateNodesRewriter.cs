@@ -6,7 +6,7 @@ using System.Collections.Generic;
 
 namespace Metalama.Open.AutoCancellationToken.Weaver
 {
-    internal partial class AutoCancellationTokenWeaver
+    public partial class AutoCancellationTokenWeaver
     {
         private sealed class AnnotateNodesRewriter : RewriterBase
         {
