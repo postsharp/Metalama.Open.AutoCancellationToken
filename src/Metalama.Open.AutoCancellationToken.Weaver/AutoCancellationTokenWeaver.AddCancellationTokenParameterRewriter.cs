@@ -1,6 +1,5 @@
 // This is an open-source Metalama example. See https://github.com/postsharp/Metalama.Samples for more.
 
-using Metalama.Framework.Engine.Formatting;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -14,10 +13,12 @@ namespace Metalama.Open.AutoCancellationToken.Weaver
         private sealed class AddCancellationTokenParameterRewriter : RewriterBase
         {
             private readonly Compilation _compilation;
+            private readonly SyntaxAnnotation _generatedCodeAnnotation;
 
-            public AddCancellationTokenParameterRewriter( Compilation compilation )
+            public AddCancellationTokenParameterRewriter( Compilation compilation, SyntaxAnnotation generatedCodeAnnotation )
             {
                 this._compilation = compilation;
+                this._generatedCodeAnnotation = generatedCodeAnnotation;
             }
 
             protected override T VisitTypeDeclaration<T>( T node, Func<T, SyntaxNode?> baseVisit )
@@ -51,7 +52,7 @@ namespace Metalama.Open.AutoCancellationToken.Weaver
                     parameters.Add(
                         SyntaxFactory.Token( SyntaxKind.CommaToken )
                             .WithTrailingTrivia( SyntaxFactory.ElasticSpace )
-                            .WithAdditionalAnnotations( FormattingAnnotations.GeneratedCode ) );
+                            .WithAdditionalAnnotations( this._generatedCodeAnnotation ) );
                 }
 
                 parameters.Add(
@@ -65,7 +66,7 @@ namespace Metalama.Open.AutoCancellationToken.Weaver
                                     SyntaxFactory.LiteralExpression( SyntaxKind.DefaultLiteralExpression ) )
                                 .WithTrailingTrivia( SyntaxFactory.ElasticSpace ) )
                         .WithTrailingTrivia( SyntaxFactory.ElasticSpace )
-                        .WithAdditionalAnnotations( FormattingAnnotations.GeneratedCode ) );
+                        .WithAdditionalAnnotations( this._generatedCodeAnnotation ) );
 
                 node = node.WithParameterList(
                     SyntaxFactory.ParameterList( SyntaxFactory.SeparatedList<ParameterSyntax>( new SyntaxNodeOrTokenList( parameters ) ) ) );

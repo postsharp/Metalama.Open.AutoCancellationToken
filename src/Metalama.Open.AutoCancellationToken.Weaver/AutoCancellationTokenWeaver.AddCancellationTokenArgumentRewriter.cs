@@ -15,10 +15,12 @@ namespace Metalama.Open.AutoCancellationToken.Weaver
         {
             private readonly Compilation _compilation;
             private string? _cancellationTokenParameterName;
+            private readonly SyntaxAnnotation _generatedCodeAnnotation;
 
-            public AddCancellationTokenArgumentRewriter( Compilation compilation )
+            public AddCancellationTokenArgumentRewriter( Compilation compilation, SyntaxAnnotation generatedCodeAnnotation )
             {
                 this._compilation = compilation;
+                this._generatedCodeAnnotation = generatedCodeAnnotation;
             }
 
             protected override T VisitTypeDeclaration<T>( T node, Func<T, SyntaxNode?> baseVisit )
@@ -121,12 +123,12 @@ namespace Metalama.Open.AutoCancellationToken.Weaver
                         arguments.Add(
                             SyntaxFactory.Token( SyntaxKind.CommaToken )
                                 .WithTrailingTrivia( SyntaxFactory.ElasticSpace )
-                                .WithAdditionalAnnotations( FormattingAnnotations.GeneratedCode ) );
+                                .WithAdditionalAnnotations( this._generatedCodeAnnotation ) );
                     }
 
                     arguments.Add(
                         SyntaxFactory.Argument( SyntaxFactory.IdentifierName( this._cancellationTokenParameterName! ) )
-                            .WithAdditionalAnnotations( FormattingAnnotations.GeneratedCode )
+                            .WithAdditionalAnnotations( this._generatedCodeAnnotation )
                             .WithTrailingTrivia( SyntaxFactory.ElasticSpace ) );
 
                     node = node.WithArgumentList(

@@ -17,8 +17,8 @@ namespace Metalama.Open.AutoCancellationToken.Weaver
             var instancesNodes = context.AspectInstances.SelectMany( a => a.Key.DeclaringSyntaxReferences ).Select( x => x.GetSyntax() );
 
             RunRewriter( new AnnotateNodesRewriter( instancesNodes ) );
-            RunRewriter( new AddCancellationTokenParameterRewriter( compilation.Compilation ) );
-            RunRewriter( new AddCancellationTokenArgumentRewriter( compilation.Compilation ) );
+            RunRewriter( new AddCancellationTokenParameterRewriter( compilation.Compilation, context.GeneratedCodeAnnotation ) );
+            RunRewriter( new AddCancellationTokenArgumentRewriter( compilation.Compilation, context.GeneratedCodeAnnotation ) );
 
             context.Compilation = compilation;
 
