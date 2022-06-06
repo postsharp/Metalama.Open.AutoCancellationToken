@@ -1,6 +1,5 @@
 // This is an open-source Metalama example. See https://github.com/postsharp/Metalama.Samples for more.
 
-using Metalama.Framework.Engine.Formatting;
 using Microsoft.CodeAnalysis;
 using Microsoft.CodeAnalysis.CSharp;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
@@ -14,8 +13,8 @@ namespace Metalama.Open.AutoCancellationToken.Weaver
         private sealed class AddCancellationTokenArgumentRewriter : RewriterBase
         {
             private readonly Compilation _compilation;
-            private string? _cancellationTokenParameterName;
             private readonly SyntaxAnnotation _generatedCodeAnnotation;
+            private string? _cancellationTokenParameterName;
 
             public AddCancellationTokenArgumentRewriter( Compilation compilation, SyntaxAnnotation generatedCodeAnnotation )
             {
