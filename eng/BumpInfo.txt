@@ -1,1 +1,1 @@
-Metalama=0.5.24-preview;PostSharp.Engineering=1.0.70-preview
+Metalama=0.5.25-preview;PostSharp.Engineering=1.0.70-preview
