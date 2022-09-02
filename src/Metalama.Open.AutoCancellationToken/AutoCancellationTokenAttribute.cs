@@ -1,4 +1,4 @@
-// This is an open-source Metalama example. See https://github.com/postsharp/Metalama.Samples for more.
+// Copyright (c) SharpCrafters s.r.o. See the LICENSE.md file in the root directory of this repository root for details.
 
 using Metalama.Framework.Aspects;
 using System;
@@ -6,5 +6,5 @@ using System;
 namespace Metalama.Open.AutoCancellationToken;
 
 [AttributeUsage( AttributeTargets.Class | AttributeTargets.Struct | AttributeTargets.Interface )]
-[RequireAspectWeaver("Metalama.Open.AutoCancellationToken.Weaver.AutoCancellationTokenWeaver")]
+[RequireAspectWeaver( "Metalama.Open.AutoCancellationToken.Weaver.AutoCancellationTokenWeaver" )]
 public class AutoCancellationTokenAttribute : TypeAspect { }
