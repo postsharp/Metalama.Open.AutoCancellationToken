@@ -1,7 +1,5 @@
-[*.cs]
-
-# File header
-file_header_template = This is an open-source Metalama example. See https://github.com/postsharp/Metalama.Samples for more.
+# If you need any customization of .editorconfig for the current repo only, this is the right place to add them.
+# The .editorconfig in the repo root is a symlink to a file that is common to all repos.
 
 [*.{cs,vb}]
 dotnet_diagnostic.CA1822.severity=silent
