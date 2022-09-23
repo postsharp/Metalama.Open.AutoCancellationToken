@@ -5,27 +5,28 @@ using Metalama.Framework.Engine.AspectWeavers;
 using Metalama.Framework.Engine.CodeModel;
 using Microsoft.CodeAnalysis.CSharp;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Metalama.Open.AutoCancellationToken.Weaver
 {
     [MetalamaPlugIn]
     public partial class AutoCancellationTokenWeaver : IAspectWeaver
     {
-        public void Transform( AspectWeaverContext context )
+        public async Task TransformAsync( AspectWeaverContext context )
         {
             var compilation = context.Compilation;
             var instancesNodes = context.AspectInstances.SelectMany( a => a.Key.DeclaringSyntaxReferences ).Select( x => x.GetSyntax() );
 
-            RunRewriter( new AnnotateNodesRewriter( instancesNodes ) );
-            RunRewriter( new AddCancellationTokenParameterRewriter( compilation.Compilation, context.GeneratedCodeAnnotation ) );
-            RunRewriter( new AddCancellationTokenArgumentRewriter( compilation.Compilation, context.GeneratedCodeAnnotation ) );
+            await RunRewriterAsync( new AnnotateNodesRewriter( instancesNodes ) );
+            await RunRewriterAsync( new AddCancellationTokenParameterRewriter( compilation.Compilation, context.GeneratedCodeAnnotation ) );
+            await RunRewriterAsync( new AddCancellationTokenArgumentRewriter( compilation.Compilation, context.GeneratedCodeAnnotation ) );
 
             context.Compilation = compilation;
 
-            void RunRewriter( CSharpSyntaxRewriter rewriter )
+            async Task RunRewriterAsync( CSharpSyntaxRewriter rewriter )
             {
-                compilation = compilation.RewriteSyntaxTrees( rewriter );
+                compilation = await compilation.RewriteSyntaxTreesAsync( rewriter, context.ServiceProvider );
             }
         }
-    }
+    } 
 }
