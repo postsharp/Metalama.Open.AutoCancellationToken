@@ -9,10 +9,12 @@
         <PackageTags></PackageTags>
         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
         <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
     </PropertyGroup>
 
     <!-- Additional content of NuGet packages -->
     <ItemGroup>
+	    <None Include="$(MSBuildThisFileDirectory)..\README.md" Visible="false" Pack="true" PackagePath="" />
         <None Include="$(MSBuildThisFileDirectory)..\LICENSE.md" Visible="false" Pack="true" PackagePath="" />
         <None Include="$(MSBuildThisFileDirectory)..\THIRD-PARTY-NOTICES.TXT" Visible="false" Pack="true" PackagePath="" />
     </ItemGroup>
