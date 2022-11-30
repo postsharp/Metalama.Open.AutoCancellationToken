@@ -4,8 +4,6 @@
         <TargetFramework>netstandard2.0</TargetFramework>
         <!-- dotnet restore requires unique package names for all projects -->
         <PackageId>Metalama.Open.AutoCancellationToken.Redist</PackageId>
-        <!-- the code from this project is included in the main package, so prevent creating a separate package from this project -->
-        <IsPackable>false</IsPackable>
 		<NoWarn>SA0001</NoWarn>
     </PropertyGroup>
 

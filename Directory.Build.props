@@ -2,7 +2,8 @@
 
     <PropertyGroup>
         <RepoDirectory>$(MSBuildThisFileDirectory)</RepoDirectory>
-        <RepoKind>GitHub</RepoKind> <!-- Valid values: AzureRepos | GitHub -->
+        <RepoKind>GitHub</RepoKind>
+        <NoWarn>SA0001</NoWarn>
     </PropertyGroup>
 
     <Import Project="eng\Versions.props"/>
