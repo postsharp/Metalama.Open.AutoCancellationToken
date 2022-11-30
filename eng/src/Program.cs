@@ -12,7 +12,7 @@ using System.Linq;
 var product = new Product( Dependencies.MetalamaOpenAutoCancellationToken )
 {
     Solutions = new Solution[] { new DotNetSolution( "Metalama.Open.AutoCancellationToken.sln" ) { CanFormatCode = true } },
-    PublicArtifacts = Pattern.Create( "Metalama.Open.AutoCancellationToken.$(PackageVersion).nupkg", "Metalama.Open.AutoCancellationToken.Redist.$(PackageVersion).nupkg"  ),
+    PublicArtifacts = Pattern.Create( "Metalama.Open.AutoCancellationToken.$(PackageVersion).nupkg", "Metalama.Open.AutoCancellationToken.Redist.$(PackageVersion).nupkg" ),
     Dependencies = new[] { Dependencies.PostSharpEngineering, Dependencies.Metalama },
     Configurations = Product.DefaultConfigurations
         .WithValue( BuildConfiguration.Public, new BuildConfigurationInfo(
